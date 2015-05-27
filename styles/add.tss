@@ -30,8 +30,10 @@
 "TableView": {
 	top: "22dp",
 	backgroundColor : Alloy.Globals.theme.list.backgroundColor,
-	footerTitle: "",
-    separatorStyle : Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
+	footerTitle: ""
+},
+"TableView[platform=ios]": {
+	separatorStyle : Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
 },
 "TableViewRow" : {
 	height: '44dp',

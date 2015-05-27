@@ -9,7 +9,9 @@
 	width: "100%",
 	left: 0,
 	backgroundColor : Alloy.Globals.theme.list.backgroundColor,
-	footerTitle: "",
+	footerTitle: ""
+},
+"TableView[platform=ios]": {
     separatorStyle : Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
 },
 "TableViewRow" : {

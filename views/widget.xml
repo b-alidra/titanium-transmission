@@ -10,7 +10,7 @@
 		</View>
 		<View id="content">
 			<TableView id="tableList">
-				<RefreshControl id="ptr" onRefreshstart="refresh"/>
+				<RefreshControl platform="ios" id="ptr" onRefreshstart="refresh"/>
 			</TableView>
 		</View>
 		<View id="footer_bar" class="hgroup">
