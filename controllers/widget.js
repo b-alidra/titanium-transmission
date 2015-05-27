@@ -35,6 +35,8 @@ function loadTorrents() {
 				    view: $.tableList
 				});
 				
+				clearInterval(interval);
+				
 				return false;
 			}
 			loadInfos();
