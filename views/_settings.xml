@@ -1,0 +1,34 @@
+<Alloy>
+	<View>
+		<View class="toolbar">
+			<View id="toolbar_title_holder">
+				<Label id="toolbar_title" />
+			</View>
+		</View>
+		<View id="content">
+			<TableView id="settings">
+				<TableViewRow>
+					<View class="abs">
+						<View class="texts_wrapper">
+							<Label class="form_label" id="connexions_label" />
+							<Label class="description" id="connexions_description" />
+						</View>
+						<View class="icon_wrapper">
+							<Label class="fa-icon" icon="fa-check"></Label>
+						</View>
+					</View>
+				</TableViewRow>
+				<TableViewRow>
+					<View class="hgroup">
+						<View class="vgroup texts_wrapper">
+							<Label class="form_label" id="t411_label" />
+							<Label class="description" id="t411_description" />
+						</View>
+						<Label class="fa-icon" icon="fa-angle-double-right"></Label>
+					</View>
+				</TableViewRow>
+			</TableView>
+		</View>
+		<Widget id="fa" src="com.mattmcfarland.fontawesome" />
+	</View>
+</Alloy>

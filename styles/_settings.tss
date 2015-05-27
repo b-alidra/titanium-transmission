@@ -1,0 +1,59 @@
+"#content": {
+	top: "48dp",
+	bottom: "5dp",
+	backgroundColor : Alloy.Globals.theme.list.backgroundColor,
+	opacity: 0.95
+},
+"TableView": {
+	top: 0,
+	right: "15dp",
+	left: 0,
+	backgroundColor : Alloy.Globals.theme.list.backgroundColor,
+	footerTitle: ""
+},
+"TableViewRow" : {
+	height: '44dp',
+	allowsSelection: false,
+	backgroundColor: '#FFFFFF'
+},
+".texts_wrapper": {
+	left: '15dp',
+	width: Ti.UI.SIZE,
+	height: "44dp",
+	backgroundColor: "#FFFF00",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	layout: "vertical"
+},
+".form_label" : {
+	left: 0,
+	width: Titanium.UI.SIZE,
+	height: Ti.UI.SIZE,
+	font: {
+		fontSize: '18dp',
+		fontWeight: 'bold'
+	},
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	color: Alloy.Globals.theme.article.titleColor
+},
+".description": {
+	left: 0,
+	width: Titanium.UI.SIZE,
+	height: Ti.UI.SIZE,
+	font: { fontSize: '10dp' },
+	color: Alloy.Globals.theme.article.titleColor
+},
+".icon_wrapper": {
+	right: 0,
+	width: "44dp",
+	height: "44dp",
+	backgroundColor: "#00FFFF"
+},
+".fa-icon": {
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	verticalAlign: Titanium.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
+	color: "000000"
+},
+"#connexions_label": { text: L('settings_connexions') },
+"#t411_label": { text: L('settings_t411') },
+"#connexions_description": { text: L('connexions_description') },
+"#t411_description": { text: L('t411_description') }
