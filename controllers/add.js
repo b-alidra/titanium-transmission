@@ -1,16 +1,29 @@
-var tr_api = new (require(WPATH('api')));
+var underscore	= require('alloy/underscore'),
+	tr_api		= new (require(WPATH('api')));
+
+var args		= arguments[0] || { data: null };
+var data		= args.data;
+
+if (!underscore.isEmpty(data)) {
+	$.add_torrent_description.hide();
+	$.url.hide();
+}
+Ti.API.info(data);
 
 tr_api.getDefaultDownloadDir(
 	function(response) {
-		$.destination.value = response.arguments['download-dir'];
+		$.destination.value = 	!underscore.isEmpty(response.arguments) &&
+								underscore.has(response.arguments, 'download-dir') ? 
+									response.arguments['download-dir'] : "";
 	}
 );
 
 $.cancel_button.addEventListener('click', function() {
 	$.add.animate({ duration: 500, opacity: 0 }, function() { $.add.close(); });
 });
+
 $.add_button.addEventListener('click', function() {
-	if (_.isEmpty($.url.value) || 'http://' == $.url.value) {
+	if ((underscore.isEmpty($.url.value) || 'http://' == $.url.value) && underscore.isEmpty(data)) {
 		Alloy.createWidget("com.mcongrove.toast", null, {
 	    	text: L('add_empty_url'),
 		    duration: 2000,
@@ -21,7 +34,14 @@ $.add_button.addEventListener('click', function() {
 		
 	Alloy.Globals.loading.show(L('adding'), false);
 	
-	tr_api.addTorrent($.url.value, $.destination.value, $.auto_start.value == false, 
+	Ti.API.info(data);
+	
+	tr_api.addTorrent({
+			url : underscore.isEmpty($.url.value) || 'http://' == $.url.value ? '' : $.url.value,
+			data: Ti.Utils.base64encode(data),
+			downloadDir: $.destination.value,
+			paused: $.auto_start.value == false
+		}, 
 		function(err, response) {
 			if (err) {
 				Alloy.Globals.loading.hide();
