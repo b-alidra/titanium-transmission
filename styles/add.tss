@@ -20,6 +20,7 @@
 		fontSize: '18dp',
 		fontWeight: 'bold'
 	},
+	color: "#FFFFFF"
 },
 "#content": {
 	top: "110dp",

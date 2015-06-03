@@ -34,11 +34,9 @@ $.add_button.addEventListener('click', function() {
 		
 	Alloy.Globals.loading.show(L('adding'), false);
 	
-	Ti.API.info(data);
-	
 	tr_api.addTorrent({
 			url : underscore.isEmpty($.url.value) || 'http://' == $.url.value ? '' : $.url.value,
-			data: Ti.Utils.base64encode(data),
+			data: data,
 			downloadDir: $.destination.value,
 			paused: $.auto_start.value == false
 		}, 
