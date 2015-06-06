@@ -11,7 +11,7 @@ $.save_button.addEventListener('click', function() {
 		$.settings_pass.value
 	);
 	
-	trApi.test(function(err) {
+	trApi.getNewSessionId(function(err, result) {
 		if (err) {
 			Alloy.Globals.loading.hide();
 			
@@ -33,8 +33,8 @@ $.save_button.addEventListener('click', function() {
 		Alloy.Globals.loading.hide();
 		
 		Alloy.createWidget("com.mcongrove.toast", null, {
-	    	text: L('settings_saved'),
-		    duration: 3000,
+	    	text: L('settings_saved') + ' New Session Id: ' + result.sessionId,
+		    duration: 6000,
 		    view: $.settings
 		});
 	});
