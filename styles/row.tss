@@ -7,8 +7,8 @@
 	height: Ti.UI.SIZE
 },
 "#row": {
-	backgroundColor: Alloy.Globals.theme.list.rowBackgroundColor,
-	selectedBackgroundColor: Alloy.Globals.theme.list.separatorColor,//Alloy.Globals.theme.menu.selectedRowBackgroundColor,
+	backgroundColor: "#FFFFFF", //Alloy.Globals.theme.list.rowBackgroundColor,
+	selectedBackgroundColor: "#FAFAFA", //Alloy.Globals.theme.list.separatorColor,//Alloy.Globals.theme.menu.selectedRowBackgroundColor,
 	height: "55dp",
 	borderWidth: 1,
 	borderColor: Alloy.Globals.theme.list.separatorColor,
@@ -23,7 +23,7 @@
 "#torrent_title": {
 	left: "10dp",
 	right: "10dp",
-	color: Alloy.Globals.theme.list.titleColor,
+	color: "#000000",
 	font: {
 		fontSize: "12",
 		fontFamily: "OpenSans"
