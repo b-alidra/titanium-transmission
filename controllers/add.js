@@ -8,15 +8,8 @@ if (!underscore.isEmpty(data)) {
 	$.add_torrent_description.hide();
 	$.url.hide();
 }
-Ti.API.info(data);
 
-tr_api.getDefaultDownloadDir(
-	function(response) {
-		$.destination.value = 	!underscore.isEmpty(response.arguments) &&
-								underscore.has(response.arguments, 'download-dir') ? 
-									response.arguments['download-dir'] : "";
-	}
-);
+$.destination.value = Ti.App.Properties.getString('last_movie_download_dir');
 
 $.cancel_button.addEventListener('click', function() {
 	$.add.animate({ duration: 500, opacity: 0 }, function() { $.add.close(); });
@@ -34,6 +27,9 @@ $.add_button.addEventListener('click', function() {
 		
 	Alloy.Globals.loading.show(L('adding'), false);
 	
+	if (!underscore.isEmpty($.destination.value))
+		Ti.App.Properties.setString('last_movie_download_dir', $.destination.value);
+		
 	tr_api.addTorrent({
 			url : underscore.isEmpty($.url.value) || 'http://' == $.url.value ? '' : $.url.value,
 			data: data,
