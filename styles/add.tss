@@ -3,7 +3,9 @@
 	top: 0,
 	right: 0,
 	bottom: 0,
-	left: 0
+	left: 0,
+	fullscreen: true,
+	navBarHidden:true
 },
 ".toolbar": {
 	backgroundColor: Alloy.Globals.theme.toolbar.backgroundColor,
@@ -84,6 +86,7 @@
 "#cancel_button": {
 	width: "120dp",
 	height: "120dp",
+	left: "-60dp",
 	center: {
 		x: "0%",
 		y: "100%"
@@ -98,7 +101,7 @@
 	font: { fontSize: 36 },
 	center: {
 		x: "70%",
-		y: "25%"
+		y: "30%"
 	}
 },
 

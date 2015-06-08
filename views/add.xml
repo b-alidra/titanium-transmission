@@ -1,5 +1,5 @@
 <Alloy>
-	<Window id="add">
+	<Window id="add" navBarHidden="true">
 		<View class="toolbar">
 			<View id="toolbar_title_holder">
 				<Label id="toolbar_title" />
@@ -11,7 +11,7 @@
 					<View class="label_holder">
 						<Label class="form_label" id="add_torrent_description" />
 					</View>
-					<TextField id="url" value="http://" />
+					<TextField id="url" value="" hintText="http://...torrent" />
 				</TableViewRow>	
 				<TableViewRow>
 					<View class="label_holder">
@@ -28,12 +28,12 @@
 				<TableViewRow></TableViewRow>
 			</TableView>
 		</View>
-		<Button id="cancel_button">
+		<View id="cancel_button">
 			<Label id="cancel_button_label" class="fa-icon" icon="fa-times"/>
-		</Button>
-		<Button id="add_button">
+		</View>
+		<View id="add_button">
 			<Label id="add_button_label" class="fa-icon" icon="fa-check"/>
-		</Button>
+		</View>
 		<Widget id="fa" src="com.mattmcfarland.fontawesome" />
 	</Window>
 </Alloy>
