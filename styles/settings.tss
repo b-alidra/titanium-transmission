@@ -1,4 +1,4 @@
-"#content": {
+".content": {
 	top: "48dp",
 	bottom: "5dp",
 	backgroundColor : Alloy.Globals.theme.list.backgroundColor,
@@ -38,7 +38,10 @@
 "#host_label": { text: L('settings_host') },
 "#port_label": { text: L('settings_port') },
 "#user_label": { text: L('settings_user') },
-"#pass_label": { text: L('settings_label') },
+"#pass_label": { text: L('settings_password') },
+
+"#t411_username_label": { text: L('settings_user') },
+"#t411_password_label": { text: L('settings_password') }
 
 "TextField" : {
 	height: Ti.UI.FILL,
@@ -51,7 +54,7 @@
 	color: Alloy.Globals.theme.article.infosColor,
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
 },
-"#save_button": {
+".save_button": {
 	width: "120dp",
 	height: "120dp",
 	center: {
@@ -62,7 +65,7 @@
 	backgroundFocusedColor: Alloy.Globals.theme.buttons.save.backgroundFocusedColor,
 	borderRadius: 60
 },
-"#save_button_icon": {
+".save_button_icon": {
 	color: Alloy.Globals.theme.buttons.save.color,
 	font: { fontSize: 36 },
 	center: {

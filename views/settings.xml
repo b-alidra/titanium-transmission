@@ -1,47 +1,74 @@
 <Alloy>
 	<View>
-		<View class="toolbar">
-			<View id="toolbar_title_holder">
-				<Label id="toolbar_title" />
+		<ScrollableView id="tabs" showPagingControl="true">
+			<View>
+				<View class="toolbar">
+					<View class="toolbar_title_holder">
+						<Label class="toolbar_title" text="Transmission" />
+					</View>
+				</View>
+				<View class="content">
+					<TableView class="settings">
+						<TableViewRow>
+							<View class="label_holder">
+								<Label class="form_label" id="name_label" />
+							</View>
+							<TextField id="transmission_name" hintText="My Transmission"/>
+						</TableViewRow>	
+						<TableViewRow>
+							<View class="label_holder">
+								<Label class="form_label" id="host_label" />
+							</View>
+							<TextField id="transmission_host" hintText="192.168.1.1"/>
+						</TableViewRow>
+						<TableViewRow>
+							<View class="label_holder">
+								<Label class="form_label" id="port_label" />
+							</View>
+							<TextField id="transmission_port" hintText="9091" value="9091"/>
+						</TableViewRow>
+						<TableViewRow>
+							<Label class="fa-icon" icon="fa-user" />
+							<View class="label_holder">
+								<Label class="form_label" id="user_label" />
+							</View>
+							<TextField id="transmission_user" hintText="transmission"/>
+						</TableViewRow>	
+						<TableViewRow>
+							<View class="label_holder">
+								<Label class="form_label" id="pass_label" />
+							</View>
+							<TextField passwordMask="true" id="transmission_pass" hintText="transmission"/>
+						</TableViewRow>	
+					</TableView>
+				</View>
 			</View>
-		</View>
-		<View id="content">
-			<TableView id="settings">
-				<TableViewRow>
-					<View class="label_holder">
-						<Label class="form_label" id="name_label" />
+			<View>
+				<View class="toolbar">
+					<View class="toolbar_title_holder">
+						<Label class="toolbar_title" text="T411"/>
 					</View>
-					<TextField id="settings_name" hintText="My Transmission"/>
-				</TableViewRow>	
-				<TableViewRow>
-					<View class="label_holder">
-						<Label class="form_label" id="host_label" />
-					</View>
-					<TextField id="settings_host" hintText="192.168.1.1"/>
-				</TableViewRow>
-				<TableViewRow>
-					<View class="label_holder">
-						<Label class="form_label" id="port_label" />
-					</View>
-					<TextField id="settings_port" hintText="9091" value="9091"/>
-				</TableViewRow>
-				<TableViewRow>
-					<Label class="fa-icon" icon="fa-user" />
-					<View class="label_holder">
-						<Label class="form_label" id="user_label" />
-					</View>
-					<TextField id="settings_user" hintText="transmission"/>
-				</TableViewRow>	
-				<TableViewRow>
-					<View class="label_holder">
-						<Label class="form_label" id="pass_label" />
-					</View>
-					<TextField id="settings_pass" hintText="transmission"/>
-				</TableViewRow>	
-			</TableView>
-		</View>
-		<Button id="save_button">
-			<Label id="save_button_icon" class="fa-icon" icon="fa-check"/>
+				</View>
+				<View class="content">
+					<TableView class="settings">
+						<TableViewRow>
+							<View class="label_holder">
+								<Label class="form_label" id="t411_username_label" />
+							</View>
+							<TextField id="t411_username"/>
+						</TableViewRow>	
+						<TableViewRow>
+							<View class="label_holder">
+								<Label class="form_label" id="t411_password_label" />
+							</View>
+							<TextField passwordMask="true" id="t411_password"  hintText=""/>
+						</TableViewRow>
+					</TableView>
+				</View>
+			</View>
+		</ScrollableView>
+		<Button id="save_button" class="save_button">
+			<Label class="save_button_icon fa-icon" icon="fa-check"/>
 		</Button>
 		<Widget id="fa" src="com.mattmcfarland.fontawesome" />
 	</View>

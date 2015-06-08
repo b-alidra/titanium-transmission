@@ -3,12 +3,15 @@ var trApi = new (require(WPATH('api')));
 $.save_button.addEventListener('click', function() {
 	Alloy.Globals.loading.show(L('settings_testing'), false);
 	
+	Ti.App.Properties.setString('t411_username', $.t411_username.value);
+	Ti.App.Properties.setString('t411_password', $.t411_password.value);
+	
 	trApi.init(
-		$.settings_name.value,
-		$.settings_host.value,
-		$.settings_port.value,
-		$.settings_user.value,
-		$.settings_pass.value
+		$.transmission_name.value,
+		$.transmission_host.value,
+		$.transmission_port.value,
+		$.transmission_user.value,
+		$.transmission_pass.value
 	);
 	
 	trApi.getNewSessionId(function(err, result) {
@@ -24,25 +27,27 @@ $.save_button.addEventListener('click', function() {
 			return false;
 		}
 		
-		Ti.App.Properties.setString('settings_name', $.settings_name.value);
-		Ti.App.Properties.setString('settings_host', $.settings_host.value);
-		Ti.App.Properties.setString('settings_port', $.settings_port.value);
-		Ti.App.Properties.setString('settings_user', $.settings_user.value);
-		Ti.App.Properties.setString('settings_pass', $.settings_pass.value);
+		Ti.App.Properties.setString('transmission_name', $.transmission_name.value);
+		Ti.App.Properties.setString('transmission_host', $.transmission_host.value);
+		Ti.App.Properties.setString('transmission_port', $.transmission_port.value);
+		Ti.App.Properties.setString('transmission_user', $.transmission_user.value);
+		Ti.App.Properties.setString('transmission_pass', $.transmission_pass.value);
 		
 		Alloy.Globals.loading.hide();
 		
 		Alloy.createWidget("com.mcongrove.toast", null, {
-	    	text: L('settings_saved') + ' New Session Id: ' + result.sessionId,
+	    	text: L('settings_saved'),
 		    duration: 6000,
 		    view: $.settings
 		});
 	});
-	
 });
 
-$.settings_name.value = Ti.App.Properties.getString('settings_name');
-$.settings_host.value = Ti.App.Properties.getString('settings_host');
-$.settings_port.value = Ti.App.Properties.getString('settings_port');
-$.settings_user.value = Ti.App.Properties.getString('settings_user');
-$.settings_pass.value = Ti.App.Properties.getString('settings_pass');
+
+$.transmission_name.value = Ti.App.Properties.getString('transmission_name');
+$.transmission_host.value = Ti.App.Properties.getString('transmission_host');
+$.transmission_port.value = Ti.App.Properties.getString('transmission_port');
+$.transmission_user.value = Ti.App.Properties.getString('transmission_user');
+$.transmission_pass.value = Ti.App.Properties.getString('transmission_pass');
+$.t411_username.value = Ti.App.Properties.getString('t411_username');
+$.t411_password.value = Ti.App.Properties.getString('t411_password');
