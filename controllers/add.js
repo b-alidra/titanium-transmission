@@ -1,10 +1,9 @@
-var underscore	= require('alloy/underscore'),
-	tr_api		= new (require(WPATH('api')));
+var tr_api		= new (require(WPATH('api')));
 
 var args		= arguments[0] || { data: null };
 var data		= args.data;
 
-if (!underscore.isEmpty(data)) {
+if (!_.isEmpty(data)) {
 	$.add_torrent_description.hide();
 	$.url.hide();
 }
@@ -16,7 +15,7 @@ $.cancel_button.addEventListener('click', function() {
 });
 
 $.add_button.addEventListener('click', function() {
-	if ((underscore.isEmpty($.url.value) || 'http://' == $.url.value) && underscore.isEmpty(data)) {
+	if ((_.isEmpty($.url.value) || 'http://' == $.url.value) && _.isEmpty(data)) {
 		Alloy.createWidget("com.mcongrove.toast", null, {
 	    	text: L('add_empty_url'),
 		    duration: 2000,
@@ -27,11 +26,11 @@ $.add_button.addEventListener('click', function() {
 		
 	Alloy.Globals.loading.show(L('adding'), false);
 	
-	if (!underscore.isEmpty($.destination.value))
+	if (!_.isEmpty($.destination.value))
 		Ti.App.Properties.setString('last_movie_download_dir', $.destination.value);
 		
 	tr_api.addTorrent({
-			url : underscore.isEmpty($.url.value) || 'http://' == $.url.value ? '' : $.url.value,
+			url : _.isEmpty($.url.value) || 'http://' == $.url.value ? '' : $.url.value,
 			data: data,
 			downloadDir: $.destination.value,
 			paused: $.auto_start.value == false
