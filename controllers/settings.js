@@ -43,6 +43,7 @@ $.save_button.addEventListener('click', function() {
 	});
 });
 
+$.t411_register_link_label.addEventListener('click', function(e) { Ti.Platform.openURL("http://www.t411.io/users/signup/"); });
 
 $.transmission_name.value = Ti.App.Properties.getString('transmission_name');
 $.transmission_host.value = Ti.App.Properties.getString('transmission_host');

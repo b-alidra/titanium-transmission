@@ -63,6 +63,9 @@
 							</View>
 							<TextField passwordMask="true" id="t411_password"  hintText=""/>
 						</TableViewRow>
+						<TableViewRow>
+							<Label class="form_label" id="t411_register_link_label" />
+						</TableViewRow>
 					</TableView>
 				</View>
 			</View>

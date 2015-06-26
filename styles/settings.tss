@@ -29,8 +29,8 @@
 	right: '5dp',
 	height: Ti.UI.FILL,
 	font: {
-		fontSize: '18dp',
-		fontWeight: 'bold'
+		fontFamily: "OpenSans-Bold",
+		fontSize: '18dp'
 	},
 	color: Alloy.Globals.theme.article.titleColor
 },
@@ -42,6 +42,14 @@
 
 "#t411_username_label": { text: L('settings_user') },
 "#t411_password_label": { text: L('settings_password') }
+"#t411_register_link_label": {
+	text: L('t411_register'),
+	font: {
+		fontFamily: "OpenSans-Bold",
+		fontSize: "14dp"
+	},
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+},
 
 "TextField" : {
 	height: Ti.UI.FILL,
