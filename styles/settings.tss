@@ -34,6 +34,23 @@
 	},
 	color: Alloy.Globals.theme.article.titleColor
 },
+"#freebox_table": {
+	bottom: "45dp"
+},
+"#freebox_discover_button": {
+	width: "75%",
+	height: "40dp",
+	bottom: 0,
+	borderWidth: 1,
+	borderColor: "#000000",
+	borderRadius: 4,
+	color: "#000000",
+	title: L('discover_freebox'),
+	font: {
+		fontFamily: "OpenSans",
+		fontSize: '14dp'
+	}
+},
 "#name_label": { text: L('settings_name') },
 "#host_label": { text: L('settings_host') },
 "#port_label": { text: L('settings_port') },

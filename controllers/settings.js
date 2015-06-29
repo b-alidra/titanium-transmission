@@ -1,5 +1,18 @@
 var trApi = new (require(WPATH('api')));
 
+$.freebox_discover_button.addEventListener('click', function() {
+	var discover = Widget.createController('freebox/discover').getView();
+	discover.addEventListener('freebox_added', function(e) {
+		
+	});
+	
+	discover.open();	
+});
+
+function loadFreeboxConnections() {
+	
+}
+
 $.save_button.addEventListener('click', function() {
 	Alloy.Globals.loading.show(L('settings_testing'), false);
 	

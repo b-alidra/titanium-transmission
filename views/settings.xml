@@ -4,11 +4,23 @@
 			<View>
 				<View class="toolbar">
 					<View class="toolbar_title_holder">
+						<Label class="toolbar_title" text="Freebox" />
+					</View>
+				</View>
+				<View class="content abs">
+					<TableView id="freebox_table">
+					</TableView>
+					<Button id="freebox_discover_button" />
+				</View>
+			</View>
+			<View>
+				<View class="toolbar">
+					<View class="toolbar_title_holder">
 						<Label class="toolbar_title" text="Transmission" />
 					</View>
 				</View>
 				<View class="content">
-					<TableView class="settings">
+					<TableView>
 						<TableViewRow>
 							<View class="label_holder">
 								<Label class="form_label" id="name_label" />
@@ -50,7 +62,7 @@
 					</View>
 				</View>
 				<View class="content">
-					<TableView class="settings">
+					<TableView>
 						<TableViewRow>
 							<View class="label_holder">
 								<Label class="form_label" id="t411_username_label" />

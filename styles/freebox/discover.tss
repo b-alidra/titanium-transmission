@@ -1,0 +1,116 @@
+"Window": {
+	backgroundColor: "#FFFFFF",
+	top: 0,
+	right: 0,
+	bottom: 0,
+	left: 0,
+	fullscreen: true,
+	navBarHidden:true
+},
+".toolbar": {
+	backgroundColor: Alloy.Globals.theme.toolbar.backgroundColor,
+	top: 0,
+	left: 0,
+	height : "48dp",
+	layout: "absolute"
+}
+"#toolbar_title": {
+	text: L('searching_freebox'),
+	height: Ti.UI.FILL,
+	center: "50%",
+	font: {
+		fontSize: '18dp',
+		fontWeight: 'bold'
+	},
+	color: "#FFFFFF"
+},
+"#content": {
+	top: "60dp",
+	backgroundColor : Alloy.Globals.theme.list.backgroundColor
+},
+"#status": {
+	left: '10dp',
+	right: '10dp',
+	height: Ti.UI.SIZE,
+	font: {
+		fontFamily: "OpenSans-Bold",
+		fontSize: '18dp'
+	},
+	color: "#000000",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+},
+".label_holder" : {
+	width: '45%',
+	left: 0,
+	top: 0
+},
+"#name_wrapper": { opacity: 0, height: "44dp" },
+"#name_label" : {
+	left: '10dp',
+	right: '5dp',
+	height: Ti.UI.SIZE,
+	font: {
+		fontFamily: "OpenSans-Bold",
+		fontSize: '18dp'
+	},
+	color: Alloy.Globals.theme.article.titleColor,
+	text: L('settings_name')
+},
+"#name": {
+	right: 0,
+	width: '55%',
+	font: {
+		fontSize: '16dp',
+		fontWeight: 'bold'
+	},
+	color: "#000000",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
+},
+"#freebox_image": {
+	width: "75%",
+	height: Titanium.UI.SIZE,
+	opacity: 0
+},
+"#cancel_button": {
+	width: "120dp",
+	height: "120dp",
+	left: "-60dp",
+	center: {
+		x: "0%",
+		y: "100%"
+	},
+	backgroundColor: Alloy.Globals.theme.buttons.cancel.backgroundColor,
+	backgroundFocusedColor: Alloy.Globals.theme.buttons.cancel.backgroundFocusedColor,
+	borderRadius: 60,
+	zIndex: 200
+},
+"#cancel_button_label": {
+	color: Alloy.Globals.theme.buttons.cancel.color,
+	font: { fontSize: 36 },
+	center: {
+		x: "70%",
+		y: "30%"
+	}
+},
+
+"#add_button": {
+	width: "120dp",
+	height: "120dp",
+	center: {
+		x: "100%",
+		y: "100%"
+	},
+	backgroundColor: Alloy.Globals.theme.buttons.add.backgroundColor,
+	backgroundFocusedColor: Alloy.Globals.theme.buttons.add.backgroundFocusedColor,
+	borderRadius: 60,
+	zIndex: 200,
+	opacity: 0
+},
+"#add_button_label": {
+	color: Alloy.Globals.theme.buttons.add.color,
+	font: { fontSize: 36 },
+	center: {
+		x: "30%",
+		y: "30%"
+	}
+}

@@ -1,0 +1,26 @@
+<Alloy>
+	<Window id="discover" navBarHidden="true">
+		<View class="toolbar">
+			<View class="toolbar_title_holder">
+				<Label id="toolbar_title"/>
+			</View>
+		</View>
+		<View id="content" class="vgroup">
+			<Label id="status" />
+			<View id="name_wrapper">
+				<View class="label_holder">
+					<Label class="form_label" id="name_label" />
+				</View>
+				<TextField id="name" value="Freebox"/>
+			</View>
+			<ImageView id="freebox_image" image="freebox_authorize.png" />
+		</View>
+		<View id="cancel_button">
+			<Label id="cancel_button_label" class="fa-icon" icon="fa-times"/>
+		</View>
+		<View id="add_button">
+			<Label id="add_button_label" class="fa-icon" icon="fa-check"/>
+		</View>
+		<Widget id="fa" src="com.mattmcfarland.fontawesome" />
+	</Window>
+</Alloy>
