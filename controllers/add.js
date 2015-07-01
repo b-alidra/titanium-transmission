@@ -1,4 +1,4 @@
-var tr_api		= new (require(WPATH('api')));
+var manager	 = require(WPATH('download_manager'))();
 
 var args		= arguments[0] || { data: null };
 var data		= args.data;
@@ -29,7 +29,7 @@ $.add_button.addEventListener('click', function() {
 	if (!_.isEmpty($.destination.value))
 		Ti.App.Properties.setString('last_movie_download_dir', $.destination.value);
 		
-	tr_api.addTorrent({
+	manager.addTorrent({
 			url : _.isEmpty($.url.value) || 'http://' == $.url.value ? '' : $.url.value,
 			data: data,
 			downloadDir: $.destination.value,

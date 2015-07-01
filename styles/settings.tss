@@ -5,7 +5,7 @@
 	opacity: 0.95
 },
 "TableView": {
-	top: 0,
+	top: "5dp",
 	width: "100%",
 	left: 0,
 	backgroundColor : Alloy.Globals.theme.list.backgroundColor,
@@ -37,7 +37,9 @@
 "#freebox_table": {
 	bottom: "45dp"
 },
-"#freebox_discover_button": {
+"#freebox_discover_button": { title: L('discover_freebox') },
+"#transmission_add_button": { title: L('add_connection') },
+".action_button": {
 	width: "75%",
 	height: "40dp",
 	bottom: 0,
@@ -45,18 +47,11 @@
 	borderColor: "#000000",
 	borderRadius: 4,
 	color: "#000000",
-	title: L('discover_freebox'),
 	font: {
 		fontFamily: "OpenSans",
 		fontSize: '14dp'
 	}
 },
-"#name_label": { text: L('settings_name') },
-"#host_label": { text: L('settings_host') },
-"#port_label": { text: L('settings_port') },
-"#user_label": { text: L('settings_user') },
-"#pass_label": { text: L('settings_password') },
-
 "#t411_username_label": { text: L('settings_user') },
 "#t411_password_label": { text: L('settings_password') }
 "#t411_register_link_label": {

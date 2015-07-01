@@ -7,6 +7,7 @@
 			<View id="toolbar_start_button_holder" class="toolbar_button_holder">
 				<Label id="toolbar_start" class="toolbarButton fa-icon" icon="fa-play"/>
 			</View>
+			<Label id="connexion_name" />
 		</View>
 		<View id="content">
 			<TableView id="tableList">
@@ -16,7 +17,7 @@
 		<View id="footer_bar" class="hgroup">
 			<View class="third vgroup">
 				<View class="hgroup">
-					<Label class="big blue" id="nb_torrents" />
+						<Label class="big blue" id="nb_torrents" />
 					<Label class="small" id="label_torrents" />
 				</View>
 				<View class="hgroup">

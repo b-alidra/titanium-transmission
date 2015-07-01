@@ -1,0 +1,54 @@
+"#row": {
+	backgroundColor: "#FFFFFF",
+	selectedBackgroundColor: "#FFFFFF",
+	allowsSelection: false,
+	height: "44dp",
+	borderWidth: 1,
+	borderColor: "#F4F4F4",
+	left: "5dp"
+},
+"#image": {
+	top: "2dp",
+	left: "2dp",
+	bottom: "2dp",
+	width: "70dp",
+	preventDefaultImage: true,
+	backgroundColor: "#FFFFFF"
+},
+"#infos_wrapper": {
+	left: "80dp",
+	right: "30dp",
+	height: Titanium.UI.SIZE,
+	center: "50%"
+},
+"#name": {
+	top: 0,
+	left: "2dp",
+	right: 0,
+	height: Ti.UI.SIZE,
+	font: {
+		fontFamily: "OpenSans-Bold",
+		fontSize: '14dp'
+	},
+	color: "#000000",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
+},
+"#host": {
+	top: "2dp",
+	left: "2dp",
+	right: 0,
+	height: Ti.UI.SIZE,
+	font: {
+		fontFamily: "OpenSans",
+		fontSize: '10dp'
+	},
+	color: "#000000",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT
+},
+"#icon": {
+	center: "50%",
+	right: "10dp",
+	font: { fontSize: '30dp' },
+	color: "#3dc52a",
+	opacity: 0.3
+}

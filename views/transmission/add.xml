@@ -1,0 +1,51 @@
+<Alloy>
+	<Window id="add" navBarHidden="true">
+		<View class="toolbar">
+			<View class="toolbar_title_holder">
+				<Label class="toolbar_title" text="Transmission" />
+			</View>
+		</View>
+		<View id="content">
+			<TableView>
+				<TableViewRow>
+					<View class="label_holder">
+						<Label class="form_label" id="name_label" />
+					</View>
+					<TextField id="transmission_name" hintText="My Transmission"/>
+				</TableViewRow>
+				<TableViewRow>
+					<View class="label_holder">
+						<Label class="form_label" id="host_label" />
+					</View>
+					<TextField id="transmission_host" hintText="192.168.1.1"/>
+				</TableViewRow>
+				<TableViewRow>
+					<View class="label_holder">
+						<Label class="form_label" id="port_label" />
+					</View>
+					<TextField id="transmission_port" hintText="9091" value="9091"/>
+				</TableViewRow>
+				<TableViewRow>
+					<Label class="fa-icon" icon="fa-user" />
+					<View class="label_holder">
+						<Label class="form_label" id="user_label" />
+					</View>
+					<TextField id="transmission_user" hintText="transmission"/>
+				</TableViewRow>
+				<TableViewRow>
+					<View class="label_holder">
+						<Label class="form_label" id="pass_label" />
+					</View>
+					<TextField passwordMask="true" id="transmission_pass" hintText="transmission"/>
+				</TableViewRow>
+			</TableView>
+		</View>
+		<View id="cancel_button">
+			<Label id="cancel_button_label" class="fa-icon" icon="fa-times"/>
+		</View>
+		<View id="add_button">
+			<Label id="add_button_label" class="fa-icon" icon="fa-check"/>
+		</View>
+		<Widget id="fa" src="com.mattmcfarland.fontawesome" />
+	</Window>
+</Alloy>

@@ -1,13 +1,15 @@
 var args = arguments[0] || {};
 
 $.cancel_button.addEventListener('click', function() {
+	$.discover.fireEvent('hide');
 	$.discover.animate({ duration: 500, opacity: 0 }, function() { $.discover.close(); });
 });
 $.add_button.addEventListener('click', function() {
+	$.discover.fireEvent('hide');
 	saveFreebox(freebox);
 	$.discover.animate({ duration: 500, opacity: 0 }, function() { $.discover.close(); });
 });
-Ti.App.Properties.setString('freeboxes', '');
+
 discover();
 
 var freebox = {};
@@ -61,7 +63,7 @@ function register() {
 	    track_id: '' 
 	};
 
-	var client = require('freebox-os-client/freebox-os-client')({});
+	var client = require('titanium-freebox-os-client/freebox-os-client')({});
 	client.requestAuthorization(null, app, null, function(response) {
 		if (response.success) {
 			app.app_token	= response.result.app_token;
@@ -99,7 +101,7 @@ function register() {
 							        		// Get IP
 							        		client.getConnectionStatus(null, null, response.result.session_token, function(response) {
 							        			if (response.success) {
-							        				freebox.ip = response.result.ipv4;
+							        				freebox.host = response.result.ipv4;
 							        				$.freebox_image.animate({ opacity: 0, duration: 500 });
 							        				$.name_wrapper.animate({ opacity: 1, duration: 500 });
 							        			}
@@ -136,17 +138,17 @@ function register() {
 }
 
 function checkIfAlreadyAuthorized(freebox_uid) {
-	var freeboxes = Ti.App.Properties.getString('freeboxes');
-	if (_.isEmpty(freeboxes))
+	var connections = Ti.App.Properties.getString('connections');
+	if (_.isEmpty(connections))
 		return false;
 		
-	freeboxes = JSON.parse(freeboxes);
-	if (_.isEmpty(freeboxes))
+	connections = JSON.parse(connections);
+	if (_.isEmpty(connections))
 		return false;
 		
 	var found = false;
-	_.each(freeboxes, function(f) {
-		if (f.uid == freebox_uid)
+	_.each(connections, function(f) {
+		if (f.type == "freebox" && f.uid == freebox_uid)
 			found = true;
 	});
 	
@@ -156,18 +158,17 @@ function checkIfAlreadyAuthorized(freebox_uid) {
 function saveFreebox(freebox) {
 	
 	freebox.name = $.name.value;
+	freebox.type = "freebox";
 	
-	var freeboxes = Ti.App.Properties.getString('freeboxes');
-	if (!_.isEmpty(freeboxes)) {
-		freeboxes = JSON.parse(freeboxes);
+	var connections = Ti.App.Properties.getString('connections');
+	if (!_.isEmpty(connections)) {
+		connections = JSON.parse(connections);
 	}
 	else
-		freeboxes = [];
+		connections = [];
 	
-	freeboxes.push(freebox);
+	connections.push(freebox);
 	
-	Ti.App.Properties.setString('freeboxes', JSON.stringify(freeboxes));
-	Ti.API.info('Saving freebox : ' + JSON.stringify(freeboxes));
-	
-	$.discover.fireEvent('freebox_added');
+	Ti.App.Properties.setString('connections', JSON.stringify(connections));
+	Ti.App.Properties.setString('active_connection', freebox);
 }

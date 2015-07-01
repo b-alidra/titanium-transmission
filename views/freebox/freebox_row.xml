@@ -1,0 +1,11 @@
+<Alloy>
+	<TableViewRow id="row" class="row abs">
+		<ImageView id="image" image="freebox-revolution.png" />
+		<View id="infos_wrapper" class="vgroup">
+			<Label id="name" />
+			<Label id="host" />
+		</View>
+		<Label id="icon" class="fa-icon" icon="fa-check" />
+		<Widget id="fa" src="com.mattmcfarland.fontawesome" />
+	</TableViewRow>
+</Alloy>

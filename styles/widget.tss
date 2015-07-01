@@ -27,6 +27,15 @@
 	height: 1,
 	backgroundColor: 'transparent'
 },
+"#connexion_name": {
+	right: "10dp",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	color: "#FFFFFF",
+	font: {
+		fontSize: "14dp",
+		fontFamily: "OpenSans-Bold"
+	}
+},
 "Label": { color: Alloy.Globals.theme.list.titleColor },
 "#add_button": {
 	width: "120dp",
