@@ -2,7 +2,7 @@ var args = arguments[0] || {};
 
 $.row.uid	= args.uid || "";
 $.name.text = args.name || "";
-$.host.text	= args.host || "";
+$.host.text	= args.host ? args.host + ':' + args.port : "";
 
 var active_connection = getActiveConnexion();
 if (active_connection != null && active_connection.uid == $.row.uid)

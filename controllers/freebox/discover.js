@@ -54,7 +54,7 @@ function discover() {
 function register() {
 	$.status.text = L('freebox_authorizing');
 	
-	var app = {
+	freebox.app = {
 	    app_id: 'com.balidra.mytransmission',
 	    app_name: 'MyTransmission',
 	    app_version: '0.0.1',
@@ -64,16 +64,16 @@ function register() {
 	};
 
 	var client = require('titanium-freebox-os-client/freebox-os-client')({});
-	client.requestAuthorization(null, app, null, function(response) {
+	client.requestAuthorization(null, freebox.app, null, function(response) {
 		if (response.success) {
-			app.app_token	= response.result.app_token;
-			app.track_id	= response.result.track_id;
+			freebox.app.app_token	= response.result.app_token;
+			freebox.app.track_id	= response.result.track_id;
 			
 			$.status.text = L('freebox_go_accept_on_box');
 			$.freebox_image.animate({ opacity: 1, duration: 500});
 			
 			var interval = setInterval(function() {
-				client.trackAuthorizationProgress({ track_id: app.track_id }, app, null, function(response) {
+				client.trackAuthorizationProgress({ track_id: freebox.app.track_id }, freebox.app, null, function(response) {
 					var status = response.success ? response.result.status : 'unknown';
 					
 					switch (status) {
@@ -89,9 +89,9 @@ function register() {
 							    if (response.success) {
 							    	var sha1 = require('alloy/sha1');
 							        var sessionStart = {
-							            app_id: app.app_id,
-							            app_version: app.app_version,
-							            password: sha1.hex_hmac_sha1(app.app_token, response.result.challenge)
+							            app_id: freebox.app.app_id,
+							            app_version: freebox.app.app_version,
+							            password: sha1.hex_hmac_sha1(freebox.app.app_token, response.result.challenge)
 							        };
 							        // Login
 							        client.openSession(null, sessionStart, null, function(response) {
@@ -99,9 +99,10 @@ function register() {
 							        	if (response.success) {
 							        		freebox.session = response.result;
 							        		// Get IP
-							        		client.getConnectionStatus(null, null, response.result.session_token, function(response) {
+							        		client.getConnectionConfig(null, null, response.result.session_token, function(response) {
 							        			if (response.success) {
-							        				freebox.host = response.result.ipv4;
+							        				freebox.host = response.result.remote_access_ip;
+							        				freebox.port = response.result.remote_access_port;
 							        				$.freebox_image.animate({ opacity: 0, duration: 500 });
 							        				$.name_wrapper.animate({ opacity: 1, duration: 500 });
 							        			}
@@ -170,5 +171,5 @@ function saveFreebox(freebox) {
 	connections.push(freebox);
 	
 	Ti.App.Properties.setString('connections', JSON.stringify(connections));
-	Ti.App.Properties.setString('active_connection', freebox);
+	Ti.App.Properties.setString('active_connection', JSON.stringify(freebox));
 }

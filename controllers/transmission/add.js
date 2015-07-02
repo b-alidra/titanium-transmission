@@ -40,7 +40,7 @@ function saveTransmission() {
 		connections.push(transmission);
 		
 		Ti.App.Properties.setString('connections', JSON.stringify(connections));
-		Ti.App.Properties.setString('active_connection', transmission);
+		Ti.App.Properties.setString('active_connection', JSON.stringify(transmission));
 		
 		Alloy.Globals.loading.hide();
 		
