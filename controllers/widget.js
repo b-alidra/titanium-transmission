@@ -41,7 +41,7 @@ function loadTorrents() {
 			
 			return false;
 		}
-		Ti.API.info(response);
+
 		loadInfos();
 		
 		$.tableList.removeAllChildren();
@@ -61,11 +61,10 @@ function loadInfos() {
 			if (err)
 				return false;
 				
-			var stats				= response.arguments;
-			$.nb_torrents.text		= stats.torrentCount + '  ';
-			$.nb_active.text		= stats.activeTorrentCount + '  ';
-			$.speed_upload.text		= '  ' + filesize(stats.uploadSpeed, {round: 0}) + '/s';
-			$.speed_download.text	= '  ' + filesize(stats.downloadSpeed, {round: 0}) + '/s';
+			$.nb_torrents.text		= response.torrentCount + '  ';
+			$.nb_active.text		= response.activeTorrentCount + '  ';
+			$.speed_upload.text		= '  ' + filesize(response.uploadSpeed, {round: 0}) + '/s';
+			$.speed_download.text	= '  ' + filesize(response.downloadSpeed, {round: 0}) + '/s';
 		}
 	);
 }
