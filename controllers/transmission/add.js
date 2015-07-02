@@ -35,12 +35,11 @@ function saveTransmission() {
 			return false;
 		}
 		
-		var connections = Ti.App.Properties.getString('connections');
-		connections		= !_.isEmpty(connections) ? JSON.parse(connections) : [];
+		var connections = Ti.App.Properties.getList('connections', []);
 		connections.push(transmission);
 		
-		Ti.App.Properties.setString('connections', JSON.stringify(connections));
-		Ti.App.Properties.setString('active_connection', JSON.stringify(transmission));
+		Ti.App.Properties.setList('connections', connections);
+		Ti.App.Properties.setObject('active_connection', transmission);
 		
 		Alloy.Globals.loading.hide();
 		

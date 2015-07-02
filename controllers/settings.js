@@ -14,24 +14,19 @@ function loadConnections() {
 	var freebox_rows 	  = [];
 	var transmission_rows = [];
 	
-	var connections = Ti.App.Properties.getString('connections');
-	if (!_.isEmpty(connections)) {
-		connections = JSON.parse(connections);
-		if (!_.isEmpty(connections)) {
-			_.each(connections, function(c) {
-				if (c.type == "freebox") {
-					var row = Widget.createController('freebox/freebox_row', c).getView();
-					row.addEventListener('click', function() { setActiveConnexion(c); });
-					freebox_rows.push(row);					
-				}
-				else if (c.type == "transmission") {
-					var row = Widget.createController('transmission/transmission_row', c).getView();
-					row.addEventListener('click', function() { setActiveConnexion(c); });
-					transmission_rows.push(row);					
-				}
-			});
+	var connections = Ti.App.Properties.getList('connections', []);
+	_.each(connections, function(c) {
+		if (c.type == "freebox") {
+			var row = Widget.createController('freebox/freebox_row', c).getView();
+			row.addEventListener('click', function() { setActiveConnexion(c); });
+			freebox_rows.push(row);					
 		}
-	}
+		else if (c.type == "transmission") {
+			var row = Widget.createController('transmission/transmission_row', c).getView();
+			row.addEventListener('click', function() { setActiveConnexion(c); });
+			transmission_rows.push(row);					
+		}
+	});
 	
 	if (_.isEmpty(freebox_rows))
 		freebox_rows.push(Widget.createController('freebox/freebox_row', {
@@ -52,7 +47,7 @@ function loadConnections() {
 }
 
 function setActiveConnexion(c) {
-	Ti.App.Properties.setString('active_connection', JSON.stringify(c));
+	Ti.App.Properties.setObject('active_connection', c);
 	loadConnections();
 }
 

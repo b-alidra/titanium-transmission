@@ -139,14 +139,8 @@ function register() {
 }
 
 function checkIfAlreadyAuthorized(freebox_uid) {
-	var connections = Ti.App.Properties.getString('connections');
-	if (_.isEmpty(connections))
-		return false;
-		
-	connections = JSON.parse(connections);
-	if (_.isEmpty(connections))
-		return false;
-		
+	var connections = Ti.App.Properties.getList('connections', []);
+	
 	var found = false;
 	_.each(connections, function(f) {
 		if (f.type == "freebox" && f.uid == freebox_uid)
@@ -161,15 +155,10 @@ function saveFreebox(freebox) {
 	freebox.name = $.name.value;
 	freebox.type = "freebox";
 	
-	var connections = Ti.App.Properties.getString('connections');
-	if (!_.isEmpty(connections)) {
-		connections = JSON.parse(connections);
-	}
-	else
-		connections = [];
+	var connections = Ti.App.Properties.getList('connections', []);
 	
 	connections.push(freebox);
 	
-	Ti.App.Properties.setString('connections', JSON.stringify(connections));
-	Ti.App.Properties.setString('active_connection', JSON.stringify(freebox));
+	Ti.App.Properties.setList('connections', connections);
+	Ti.App.Properties.setObject('active_connection', freebox);
 }
